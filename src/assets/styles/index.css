@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+body {
+  background-color: #fbf6f0;
+}
+
 .App {
   min-height: 100vh;
   display: flex;
