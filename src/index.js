@@ -5,6 +5,7 @@ import { Provider } from 'react-redux';
 import store from './store';
 import App from './components/App';
 
+import 'react-awesome-button/dist/themes/theme-c137.css';
 import './assets/styles/index.css';
 
 ReactDOM.render(
