@@ -1,11 +1,11 @@
 import React from 'react';
 
-import Header from './Header';
+import Header from './Header/';
 import Playground from './Playground';
 
 const App = () => {
   return (
-    <div className="App container">
+    <div className="app container">
       <Header />
       <Playground />
     </div>
