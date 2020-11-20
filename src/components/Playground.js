@@ -1,10 +1,16 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
+import Deck from './Deck';
 import Card from './Card';
 
-const Playground = ({ state }) => {
-  const { cards, match } = state;
+const Playground = ({ cardState, gameState }) => {
+  const { cards, match } = cardState;
+  const { start } = gameState;
+
+  if (!start) {
+    return <Deck />;
+  }
 
   return (
     <div className="playground">
@@ -16,7 +22,8 @@ const Playground = ({ state }) => {
 };
 
 const mapStateToProps = (state) => ({
-  state: state.card,
+  cardState: state.card,
+  gameState: state.game,
 });
 
 export default connect(mapStateToProps)(Playground);
