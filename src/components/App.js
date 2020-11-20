@@ -5,7 +5,7 @@ import Playground from './Playground';
 
 const App = () => {
   return (
-    <div className="container">
+    <div className="App container">
       <Header />
       <Playground />
     </div>

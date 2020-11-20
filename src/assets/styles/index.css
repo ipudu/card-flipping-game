@@ -4,18 +4,30 @@
   box-sizing: border-box;
 }
 
-.playground {
+.App {
+  min-height: 100vh;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.playground {
+  height: 80vh;
+  display: flex;
+  justify-content: center;
   flex-wrap: wrap;
 }
 
+img {
+  width: 150px;
+  height: 200px;
+}
 .flip-card {
-  width: 300px;
-  height: 300px;
-  perspective: 1000px;
-  margin: 20px;
+  width: 150px;
+  height: 200px;
+  perspective: 800px;
+  margin: 10px;
 }
 
 .flip-card-inner {
