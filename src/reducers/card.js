@@ -3,7 +3,7 @@ import shuffle from 'lodash/shuffle';
 import { cardDeck } from '../utils';
 import * as types from '../constants';
 
-const NUMBER_OF_PAIRS = 3;
+const NUMBER_OF_PAIRS = 9;
 
 const shuffledCardDeck = shuffle(cardDeck);
 const oneSetOfCards = shuffledCardDeck.slice(0, NUMBER_OF_PAIRS);
