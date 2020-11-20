@@ -19,6 +19,7 @@ body {
 }
 
 .header {
+  height: 10vh;
   width: 100%;
 }
 
@@ -117,4 +118,8 @@ img {
 .leaderboard {
   min-height: 80vh;
   width: 100%;
+}
+
+.footer {
+  height: 10vh;
 }
