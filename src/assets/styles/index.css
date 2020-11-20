@@ -5,15 +5,25 @@
 }
 
 body {
+  font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir,
+    helvetica neue, helvetica, ubuntu, roboto, noto, segoe ui, arial, sans-serif;
   background-color: #fbf6f0;
 }
 
-.App {
+.app {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.header {
+  width: 100%;
+}
+
+.navbar {
+  width: 100%;
 }
 
 .playground {
@@ -102,4 +112,9 @@ img {
     opacity: 0;
     visibility: hidden;
   }
+}
+
+.leaderboard {
+  min-height: 80vh;
+  width: 100%;
 }
