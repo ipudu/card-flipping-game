@@ -1,9 +1,15 @@
 import React from 'react';
 
+import Header from './Header';
 import Playground from './Playground';
 
 const App = () => {
-  return <Playground />;
+  return (
+    <div className="container">
+      <Header />
+      <Playground />
+    </div>
+  );
 };
 
 export default App;

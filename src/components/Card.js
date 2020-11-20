@@ -1,25 +1,24 @@
 import React, { useState } from 'react';
+import { connect } from 'react-redux';
 
-import { CARD_BACK } from '../utils/cardDeck';
+import { cardBack } from '../utils/cardDeck';
+import { clickCard, resetLastClick } from '../actions';
 
-const Card = ({ card, idx, matched }) => {
-  const [isFlipped, setIsFlipped] = useState(false);
-  const [disableClick, setDisableClick] = useState(false);
+const Card = ({ card, idx, match, clickCard, resetLastClick }) => {
+  const [flip, setFlip] = useState(false);
 
   const handleClick = () => {
-    if (!disableClick) {
-      setIsFlipped((isFlipped) => !isFlipped);
-      setDisableClick((disableClick) => !disableClick);
-      setTimeout(() => {
-        setIsFlipped((isFlipped) => !isFlipped);
-        setDisableClick((disableClick) => !disableClick);
-      }, 1000);
-    }
+    setFlip((prevFlip) => !prevFlip);
+    setTimeout(() => {
+      setFlip((prevFlip) => !prevFlip);
+      resetLastClick();
+    }, 1000);
+    clickCard(card, idx);
   };
 
-  if (matched[idx]) {
+  if (match) {
     return (
-      <div className="flip-card">
+      <div className="flip-card match">
         <img src={card} alt="" />
       </div>
     );
@@ -27,9 +26,9 @@ const Card = ({ card, idx, matched }) => {
 
   return (
     <div className="flip-card" onClick={handleClick}>
-      <div className={`flip-card-inner ${isFlipped && 'flipped'}`}>
+      <div className={`flip-card-inner ${flip && 'flipped'}`}>
         <div className="flip-card-front">
-          <img src={CARD_BACK} alt="" />
+          <img src={cardBack} alt="" />
         </div>
         <div className="flip-card-back">
           <img src={card} alt="" />
@@ -39,4 +38,9 @@ const Card = ({ card, idx, matched }) => {
   );
 };
 
-export default Card;
+const mapDispatchToProps = (dispatch) => ({
+  clickCard: (card, idx) => dispatch(clickCard(card, idx)),
+  resetLastClick: () => dispatch(resetLastClick()),
+});
+
+export default connect(null, mapDispatchToProps)(Card);
