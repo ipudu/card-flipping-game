@@ -19,7 +19,7 @@ body {
 }
 
 .header {
-  height: 10vh;
+  height: 15vh;
   width: 100%;
 }
 
@@ -28,7 +28,7 @@ body {
 }
 
 .playground {
-  min-height: 80vh;
+  min-height: 75vh;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -49,7 +49,7 @@ img {
   position: relative;
   width: 100%;
   height: 100%;
-  transition: transform 0.6s;
+  transition: transform 1s;
   transform-style: preserve-3d;
 }
 
@@ -116,6 +116,11 @@ img {
 }
 
 .leaderboard {
-  min-height: 80vh;
+  min-height: 75vh;
+  width: 100%;
+}
+
+.deck {
+  min-height: 75vh;
   width: 100%;
 }
