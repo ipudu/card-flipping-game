@@ -7,10 +7,10 @@ import PlayArrowIcon from '@material-ui/icons/PlayArrow';
 import RefreshIcon from '@material-ui/icons/Refresh';
 
 import Timer from './Timer';
-import { startGame, resetGame } from '../../actions';
+import { startGame, resetGame, resetCard } from '../../actions';
 
-const Navbar = ({ gameState, startGame, resetGame }) => {
-  const { start } = gameState;
+const Navbar = ({ gameState, startGame, resetAll }) => {
+  const { start, win } = gameState;
 
   return (
     <nav className="navbar">
@@ -30,8 +30,8 @@ const Navbar = ({ gameState, startGame, resetGame }) => {
       <div className="d-flex align-items-center">
         {start ? (
           <>
-            <Timer />
-            <div onClick={resetGame}>
+            {!win && <Timer />}
+            <div onClick={resetAll}>
               <AwesomeButton type="link">
                 <RefreshIcon />
               </AwesomeButton>
@@ -55,7 +55,10 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   startGame: () => dispatch(startGame()),
-  resetGame: () => dispatch(resetGame()),
+  resetAll: () => {
+    dispatch(resetGame());
+    dispatch(resetCard());
+  },
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Navbar);
