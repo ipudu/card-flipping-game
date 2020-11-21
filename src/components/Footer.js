@@ -3,7 +3,7 @@ import { AwesomeButtonSocial } from 'react-awesome-button';
 
 const Footer = () => {
   return (
-    <footer>
+    <footer className="d-flex justify-content-center">
       <AwesomeButtonSocial className="mx-2" type="facebook" />
       <AwesomeButtonSocial className="mx-2" type="twitter" />
       <AwesomeButtonSocial
