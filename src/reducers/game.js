@@ -14,11 +14,7 @@ const gameReducer = (state = initalState, action) => {
         start: true,
       };
     case types.GAME_RESET:
-      return {
-        ...state,
-        start: false,
-        win: false,
-      };
+      return initalState;
     case types.GAME_WIN:
       return {
         ...state,

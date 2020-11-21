@@ -31,6 +31,13 @@ const cardReducer = (state = initalState, action) => {
         ...state,
         match: newMatch,
       };
+    case types.CARD_RESET:
+      return {
+        cards: shuffle([...oneSetOfCards, ...oneSetOfCards]),
+        match: [...Array(NUMBER_OF_PAIRS * 2).fill(false)],
+        isFlipping: [...Array(NUMBER_OF_PAIRS * 2).fill(false)],
+        lastClick: ['', -1],
+      };
     default:
       return state;
   }
