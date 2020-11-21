@@ -16,7 +16,7 @@ const Leaderboard = () => {
   return (
     <div className="leaderboard">
       {data.length === 0 ? (
-        <div className="d-flex justify-content-center align-items-center mt-5">
+        <div className="d-flex justify-content-center align-items-center pt-5">
           <CircularProgress />
         </div>
       ) : (

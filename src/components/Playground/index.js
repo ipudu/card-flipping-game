@@ -2,11 +2,16 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import Deck from './Deck';
+import Win from './Win';
 import Card from './Card';
 
-const Playground = ({ cardState, gameState }) => {
+const Playground = ({ cardState, gameState, winGame }) => {
   const { cards, match } = cardState;
   const { start } = gameState;
+
+  if (match.every((current) => current === true)) {
+    return <Win />;
+  }
 
   if (!start) {
     return <Deck />;

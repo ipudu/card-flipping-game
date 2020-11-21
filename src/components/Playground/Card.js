@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 
-import { cardBack } from '../utils/cardDeck';
-import { clickCard, resetLastClick } from '../actions';
+import { cardBack } from '../../utils/cardDeck';
+import { clickCard, resetLastClick } from '../../actions';
 
-const Card = ({ card, idx, match, clickCard, resetLastClick }) => {
+const Card = ({ card, idx, match, clickCard, resetLastClick, winGame }) => {
   const [flip, setFlip] = useState(false);
 
   const handleClick = () => {
