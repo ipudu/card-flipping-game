@@ -10,14 +10,6 @@ body {
   background-color: #fbf6f0;
 }
 
-.app {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
 .header {
   height: 15vh;
   width: 100%;
@@ -30,7 +22,7 @@ body {
 .playground {
   min-height: 75vh;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   flex-wrap: wrap;
 }
 

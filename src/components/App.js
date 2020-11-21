@@ -8,7 +8,7 @@ import Footer from './Footer';
 
 const App = () => {
   return (
-    <div className="app container">
+    <div className="container">
       <Header />
 
       <Switch>
