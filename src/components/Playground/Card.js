@@ -1,11 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 
 import { cardBack } from '../../utils/cardDeck';
-import { clickCard, resetLastClick } from '../../actions';
+import { clickCard, resetLastClick, winGame } from '../../actions';
 
 const Card = ({ card, idx, match, clickCard, resetLastClick, winGame }) => {
   const [flip, setFlip] = useState(false);
+
+  useEffect(() => {
+    if (match.every((current) => current === true)) {
+      winGame();
+    }
+  });
 
   const handleClick = () => {
     setFlip((prevFlip) => !prevFlip);
@@ -16,7 +22,7 @@ const Card = ({ card, idx, match, clickCard, resetLastClick, winGame }) => {
     clickCard(card, idx);
   };
 
-  if (match) {
+  if (match[idx]) {
     return (
       <div className="flip-card match">
         <img src={card} alt="" />
@@ -41,6 +47,7 @@ const Card = ({ card, idx, match, clickCard, resetLastClick, winGame }) => {
 const mapDispatchToProps = (dispatch) => ({
   clickCard: (card, idx) => dispatch(clickCard(card, idx)),
   resetLastClick: () => dispatch(resetLastClick()),
+  winGame: () => dispatch(winGame()),
 });
 
 export default connect(null, mapDispatchToProps)(Card);
