@@ -16,3 +16,7 @@ export const resetLastClick = () => ({
   type: types.CARD_CLICK,
   payload: ['', -1],
 });
+
+export const resetCard = () => ({
+  type: types.CARD_RESET,
+});
