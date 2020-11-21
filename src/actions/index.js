@@ -1,2 +1,2 @@
 export { clickCard, resetLastClick } from './card';
-export { startGame, resetGame } from './game';
+export { startGame, resetGame, winGame, timeGame } from './game';
