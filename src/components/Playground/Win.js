@@ -1,13 +1,17 @@
 import React, { useState } from 'react';
+import Axios from 'axios';
+import { connect } from 'react-redux';
 import celebration from '../../assets/svgs/celebration.svg';
 
-const Win = () => {
+const Win = ({ gameState }) => {
+  const { time } = gameState;
   const [name, setName] = useState('');
   const [isSubmit, setIsSubmit] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setIsSubmit(true);
+    const API = 'https://card-api-39svs5zcv2e3.runkit.sh';
+    Axios.post(API, { name, time }).then(() => setIsSubmit(true));
   };
 
   return (
@@ -18,7 +22,11 @@ const Win = () => {
         </div>
       ) : (
         <div className="d-flex flex-column align-items-center">
-          <h2>Nice! You beat the game in ... sec</h2>
+          <h2>
+            Nice! You beat the game in
+            <span className="text-danger"> {(time / 1000).toFixed(2)} </span>
+            sec 🎉
+          </h2>
           <img
             src={celebration}
             alt=""
@@ -50,4 +58,8 @@ const Win = () => {
   );
 };
 
-export default Win;
+const mapStateToProps = (state) => ({
+  gameState: state.game,
+});
+
+export default connect(mapStateToProps)(Win);

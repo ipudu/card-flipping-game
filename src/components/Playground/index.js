@@ -5,11 +5,11 @@ import Deck from './Deck';
 import Win from './Win';
 import Card from './Card';
 
-const Playground = ({ cardState, gameState, winGame }) => {
+const Playground = ({ cardState, gameState }) => {
   const { cards, match } = cardState;
-  const { start } = gameState;
+  const { start, win } = gameState;
 
-  if (match.every((current) => current === true)) {
+  if (win) {
     return <Win />;
   }
 
@@ -18,9 +18,9 @@ const Playground = ({ cardState, gameState, winGame }) => {
   }
 
   return (
-    <div className="playground">
+    <div className="cardpool">
       {cards.map((card, idx) => (
-        <Card card={card} key={idx} idx={idx} match={match[idx]} />
+        <Card card={card} key={idx} idx={idx} match={match} />
       ))}
     </div>
   );
