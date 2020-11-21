@@ -9,7 +9,8 @@ const Leaderboard = () => {
     const API = 'https://card-api-39svs5zcv2e3.runkit.sh';
 
     Axios.get(API).then((res) => {
-      setData(res.data.slice(0, 10));
+      const sortedData = res.data.sort((a, b) => a.time - b.time);
+      setData(sortedData.slice(0, 10));
     });
   }, []);
 
@@ -25,12 +26,23 @@ const Leaderboard = () => {
             <h4>Gamer</h4>
             <h4>Time used</h4>
           </div>
-          <ul className="list-group">
+          <ul className="list-group" style={{ fontSize: '1.5rem' }}>
             {data.map((d, idx) => (
               <li className="list-group-item" key={idx}>
                 <div className="d-flex justify-content-between align-items-center">
-                  <span>{d.gamer}</span>
-                  <span>{d.time}</span>
+                  <span>
+                    <span>
+                      {idx === 0
+                        ? `🥇 `
+                        : idx === 1
+                        ? `🥈 `
+                        : idx === 2
+                        ? `🥉 `
+                        : `🏅 `}
+                    </span>
+                    {d.gamer}
+                  </span>
+                  <span>{(d.time / 1000).toFixed(2)} sec</span>
                 </div>
               </li>
             ))}
