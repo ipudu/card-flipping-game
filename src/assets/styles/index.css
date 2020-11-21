@@ -19,7 +19,7 @@ body {
   width: 100%;
 }
 
-.playground {
+.cardpool {
   min-height: 75vh;
   display: flex;
   justify-content: space-between;
@@ -41,7 +41,7 @@ img {
   position: relative;
   width: 100%;
   height: 100%;
-  transition: transform 1s;
+  transition: transform 0.5s;
   transform-style: preserve-3d;
 }
 
