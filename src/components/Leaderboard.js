@@ -22,7 +22,10 @@ const Leaderboard = () => {
         </div>
       ) : (
         <div>
-          <div className="d-flex justify-content-between font-weight-bold px-2 mb-2">
+          <div
+            className="d-flex justify-content-between font-weight-bold mb-2"
+            style={{ padding: '0 1rem' }}
+          >
             <h4>Gamer</h4>
             <h4>Time used</h4>
           </div>

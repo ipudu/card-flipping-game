@@ -21,7 +21,11 @@ const Navbar = ({ gameState, startGame, resetAll }) => {
           </AwesomeButton>
         </Link>
         <Link to="/leaderboard">
-          <AwesomeButton type="primary" className="mx-2">
+          <AwesomeButton
+            type="primary"
+            className="mx-2"
+            style={{ fontSize: '1rem' }}
+          >
             Leaderboard
           </AwesomeButton>
         </Link>
